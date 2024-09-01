@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>musica</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      background-color: #00152c;
+      margin: 0;
+    }
+
+    #music-player {
+      max-width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #0d024e;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    button {
+      display: inline-block;
+      margin: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #6f02ff;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #6f02ff;
+    }
+
+    h2 {
+      color: #6f02ff;
+      margin-bottom: 10px;
+    }
+
+    #artist-image {
+      max-width: 100%;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="music-player">
+    <img id="artist-image" src="media/cr @heyclar4.jpg" alt="Imagem do Artista">
+    <p id="song-title">FEIN</p>
+    <h2>Travis Scott</h2>
+    <audio id="audio-player" controls>
+      <source src="media/Travis Scott - FE!N (Official Audio) ft. Playboi Carti (256 kbps).mp3" type="audio/mp3">
+      Seu navegador não suporta a tag de áudio.
+    </audio>
+    <br>
+    <button id="play-pause-button">Play</button>
+    <button id="stop-button">Stop</button>
+  </div>
+
+  <script>
+    var audioPlayer = document.getElementById('audio-player');
+    var playPauseButton = document.getElementById('play-pause-button');
+    var stopButton = document.getElementById('stop-button');
+    var artistImage = document.getElementById('artist-image');
+
+    // Substitua 'imagem-do-artista.jpg' e 'Nome do Artista' pelos valores corretos
+    artistImage.src = 'media/cr @heyclar4.jpg';
+    artistImage.alt = 'media/cr @heyclar4.jpg';
+    document.querySelector('h2').textContent = 'Travis Scott';
+
+    playPauseButton.addEventListener('click', function() {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseButton.textContent = 'Pause';
+      } else {
+        audioPlayer.pause();
+        playPauseButton.textContent = 'Play';
+      }
+    });
+
+    stopButton.addEventListener('click', function() {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+      playPauseButton.textContent = 'Play';
+    });
+  </script>
+
+</body>
+</html>
